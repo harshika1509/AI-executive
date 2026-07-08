@@ -1,0 +1,39 @@
+Meeting Title: AI Meeting Assistant – Sprint Planning
+
+Participants: Shivam (Lead Developer), Ananya (Frontend), Rahul (Backend), Priya (Product Manager)
+
+Priya: Good morning, everyone. The main objective today is to finalize the MVP scope for our AI Meeting Assistant before we start implementation. We only have a week, so we need to prioritize features that provide the most value while remaining achievable.
+
+Shivam: I agree. I think we should avoid trying to build every feature we have discussed. My proposal is to focus on three core capabilities: meeting transcription, AI-generated summaries, and action item extraction. If we finish those well, we can add more features later.
+
+Rahul: From the backend side, that seems manageable. For transcription, are we planning to use Whisper? Running it locally could save API costs, although it might require more setup. Alternatively, we can use an API initially and replace it later.
+
+Shivam: Let's begin with an API because our goal is to have a working demo quickly. We can optimize the infrastructure after the MVP is complete.
+
+Ananya: On the frontend, I can create a simple interface where users upload an audio recording. Once processing is complete, they'll see different sections like Executive Summary, Key Discussion Points, Decisions, and Action Items. I also think adding a progress indicator while the transcript is being processed would improve the user experience.
+
+Priya: That sounds good. We should also generate a meeting title automatically. It makes the output feel much more polished.
+
+Rahul: Another idea is to store previous meetings so users can revisit summaries later. We don't need authentication immediately, but having a database schema ready would make future expansion easier.
+
+Shivam: I like that. We'll use PostgreSQL for storing meeting metadata, transcripts, and summaries. Authentication can wait until version two.
+
+Ananya: Should we allow users to edit the generated summary before downloading it?
+
+Priya: Yes, but only basic editing. A rich text editor is unnecessary for the MVP.
+
+Rahul: For AI processing, I recommend chunking long transcripts before sending them to the language model. Otherwise, we might exceed context limits for larger meetings.
+
+Shivam: Agreed. We'll implement transcript chunking and combine intermediate summaries into a final report. That should also improve summary quality.
+
+Priya: Let's also extract owners and deadlines whenever possible. For example, if someone says "Rahul will finish the API by Friday," that should appear automatically in the Action Items section.
+
+Rahul: That's straightforward with prompt engineering. We can instruct the model to output structured JSON, then render it nicely in the UI.
+
+Ananya: I'll also add buttons for copying the summary and downloading it as a PDF. Those features don't take much time but make the application feel more complete.
+
+Shivam: Great. Let's divide the work. Rahul will build the backend APIs and AI integration. Ananya will handle the frontend and upload flow. I'll integrate the language model, prompt engineering, and deployment. Priya will prepare sample meeting recordings and test cases for evaluation.
+
+Priya: Perfect. Let's aim to have a functional prototype by Thursday evening, spend Friday on bug fixes and UI improvements, and record a short demo video over the weekend. If everything goes according to plan, we'll include the project on our resumes with a GitHub repository and deployment link.
+
+Meeting Concluded.
